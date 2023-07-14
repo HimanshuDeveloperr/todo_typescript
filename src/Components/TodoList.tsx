@@ -2,6 +2,8 @@
 
 import { todoStore } from '@/Store/Todos';
 import dynamic from 'next/dynamic';
+import { observer } from "mobx-react";
+
 import React from 'react';
 
 const TodoList= () => {
@@ -18,5 +20,4 @@ const TodoList= () => {
   );
 };
 
-export default dynamic (() => Promise.resolve(TodoList), {ssr: false})
-
+export default dynamic(() => Promise.resolve(observer(TodoList)), { ssr: false });

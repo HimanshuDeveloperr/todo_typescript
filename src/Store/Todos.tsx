@@ -42,6 +42,14 @@ export class TodoStore {
     }
   };
 
+  editTodo = (id: string, newTask: string) => {
+    const todo = this.todos.find((todo) => todo.id === id);
+    if (todo) {
+      todo.task = newTask;
+      this.saveTodos();
+    }
+  };
+
   saveTodos = () => {
     localStorage.setItem("todos", JSON.stringify(this.todos));
   };
